@@ -21,11 +21,16 @@ sudo apt-get install docker-ce -y
 
 ## 使用方法
 
-1. 复制服务端中的 data 文件夹的内容到 data 文件夹
+1. 将服务端中的 `data` 文件夹打包成名为 `server.tar` 的文件，随后可删除服务端文件
 
-2. 复制服务端中的 usr 文件夹的内容到 usr 文件夹
+```sh
+tar -czvf server.tar.gz data
+rm -rf data
+```
 
-3. 生产 docker 镜像
+2. 复制服务端中的 `usr` 文件夹到仓库目录
+
+3. 生成 docker 镜像
 
 ```sh
 docker build -t wacmk-dn-{server_type}:{tag}.

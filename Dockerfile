@@ -1,11 +1,10 @@
-FROM ubuntu:24.04
-RUN apt update
+FROM debian:12-slim
 
-RUN mkdir -p /logs /scripts /data
+RUN mkdir /logs /scripts /default-server /data
 COPY ./scripts /scripts
-COPY ./data /data
+COPY ./server.tar.gz /default-server/server.tar.gz
 COPY ./usr /usr
-RUN find /scripts -type f -exec chmod +x {} \;
+RUN chmod -R 777 /scripts
 
 RUN echo '/usr/local/lib' >>/etc/ld.so.conf
 RUN ldconfig
