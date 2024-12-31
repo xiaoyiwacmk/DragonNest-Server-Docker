@@ -1,8 +1,10 @@
 FROM debian:12-slim
+RUN apt update
+RUN apt install -y zip
 
-RUN mkdir /logs /scripts /default-server /data
+RUN mkdir /logs /scripts  /data
 COPY ./scripts /scripts
-COPY ./server.tar.gz /default-server/server.tar.gz
+COPY ./server.zip /server.zip
 COPY ./usr /usr
 RUN chmod -R 777 /scripts
 

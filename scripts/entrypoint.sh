@@ -28,7 +28,7 @@ echo "<< WACMK 龙之谷手游服务端 >>"
 if [ "$INIT_MODE" = "true" ]; then
     echo "【初始化模式】"
     echo "初始化服务端文件中...（注：如果修改过服务端，将会被重置为初始版本）"
-    tar -xzvf /default-server/server.tar.gz -C /
+    unzip server.zip
     chmod -R 777 /data
     echo "初始化脚本文件中...（注：已有的用户数据将被删除）"
     /scripts/update_basic_scripts.sh

@@ -21,12 +21,7 @@ sudo apt-get install docker-ce -y
 
 ## 使用方法
 
-1. 将服务端中的 `data` 文件夹打包成名为 `server.tar` 的文件，随后可删除服务端文件
-
-```sh
-tar -czvf server.tar.gz data
-rm -rf data
-```
+1. 将服务端中的 `data` 压缩成 `server.zip` 的文件，随后可删除服务端文件
 
 2. 复制服务端中的 `usr` 文件夹到仓库目录
 
