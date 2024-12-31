@@ -5,8 +5,8 @@ function update_login_sql() {
 
 
 
-    # 生成 XML 内容
-    cat <<EOF > /data/sql/login.sql
+    # 生成 sql 内容
+    content=$(cat <<EOF
 /*Automaticly generated in $(date), scripts by WACMK*/
 /*
 Navicat MySQL Data Transfer
@@ -210,15 +210,17 @@ CREATE TABLE `users` (
 -- ----------------------------
 
 EOF
+    )
 
+    echo "$content" > /data/sql/login.sql
     echo "login.sql 更新完成"
 }
 
 function update_db_sh() {
     rm -rf /data/sql/db.sh
 
-    # 生成 XML 内容
-    cat <<EOF > /data/sql/db.sh
+    # 生成 bash 内容
+    content=$(cat <<EOF
 #!/bin/bash
 
 # Automaticly generated in $(date), scripts by WACMK
@@ -236,7 +238,9 @@ mysql -h$MYSQL_HOST -P$MYSQL_PORT -u$MYSQL_USER -p$MYSQL_PASSWORD $MYSQL_DB_WORL
 echo "数据库已导入成功。";
 
 EOF
+    )
 
+    echo "$content" > /data/sql/db.sh
     chmod +x /data/sql/db.sh
 
     echo "db.sh 更新完成"

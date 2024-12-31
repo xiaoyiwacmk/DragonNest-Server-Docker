@@ -4,7 +4,7 @@ function update_cs_conf() {
     rm -rf /data/lzg/bin/conf/cs_conf.xml
 
     # 生成 XML 内容
-    cat <<EOF > /data/lzg/bin/conf/cs_conf.xml
+    content=$(cat <<EOF
 <?xml version="1.0" encoding="utf-8"?>
 
 <!-- Automaticly generated in $(date), scripts by WACMK -->
@@ -32,7 +32,8 @@ function update_cs_conf() {
 </CenterServer>
 
 EOF
-
+    )
+	echo "$content" > /data/lzg/bin/conf/cs_conf.xml
     echo "cs_conf.xml 更新完成"
 }
 
@@ -40,7 +41,7 @@ function update_ctrl_conf() {
     rm -rf /data/lzg/bin/conf/ctrl_conf.xml
 
     # 生成 XML 内容
-    cat <<EOF > /data/lzg/bin/conf/ctrl_conf.xml
+    content=$(cat <<EOF
 <?xml version="1.0" encoding="utf-8"?>
 
 <!-- Automaticly generated in $(date), scripts by WACMK -->
@@ -74,7 +75,8 @@ function update_ctrl_conf() {
 </ControlServer>
 
 EOF
-
+    )
+	echo "$content" > /data/lzg/bin/conf/ctrl_conf.xml
     echo "ctrl_conf.xml 更新完成"
 }
 
@@ -82,7 +84,7 @@ function update_db_conf() {
     rm -rf /data/lzg/bin/conf/db_conf.xml
 
     # 生成 XML 内容
-    cat <<EOF > /data/lzg/bin/conf/db_conf.xml
+    content=$(cat <<EOF
 <?xml version="1.0" encoding="utf-8"?>
 
 <!-- Automaticly generated in $(date), scripts by WACMK -->
@@ -110,7 +112,8 @@ function update_db_conf() {
 </DBServer>
 
 EOF
-
+    )
+	echo "$content" > /data/lzg/bin/conf/db_conf.xml
     echo "db_conf.xml 更新完成"
 }
 
@@ -118,7 +121,7 @@ function update_gs_conf() {
     rm -rf /data/lzg/bin/conf/gs_conf.xml
 
     # 生成 XML 内容
-    cat <<EOF > /data/lzg/bin/conf/gs_conf.xml
+    content=$(cat <<EOF
 <?xml version="1.0" encoding="utf-8"?>
 
 <!-- Automaticly generated in $(date), scripts by WACMK -->
@@ -157,7 +160,8 @@ function update_gs_conf() {
 </GameServer>
 
 EOF
-
+    )
+	echo "$content" > /data/lzg/bin/conf/gs_conf.xml
     echo "gs_conf.xml 更新完成"
 }
 
@@ -165,7 +169,7 @@ function update_login_conf() {
     rm -rf /data/lzg/bin/conf/login_conf.xml
 
     # 生成 XML 内容
-    cat <<EOF > /data/lzg/bin/conf/login_conf.xml
+    content=$(cat <<EOF
 <?xml version="1.0" encoding="utf-8"?>
 
 <!-- Automaticly generated in $(date), scripts by WACMK -->
@@ -209,7 +213,8 @@ function update_login_conf() {
 </LoginServer>
 
 EOF
-
+    )
+	echo "$content" > /data/lzg/bin/conf/login_conf.xml
     echo "login_conf.xml 更新完成"
 }
 
@@ -217,7 +222,7 @@ function update_ms_conf() {
     rm -rf /data/lzg/bin/conf/ms_conf.xml
 
     # 生成 XML 内容
-    cat <<EOF > /data/lzg/bin/conf/ms_conf.xml
+    content=$(cat <<EOF
 <?xml version="1.0" encoding="utf-8"?>
 
 <!-- Automaticly generated in $(date), scripts by WACMK -->
@@ -269,7 +274,8 @@ function update_ms_conf() {
 </MasterServer>
 
 EOF
-
+    )
+	echo "$content" > /data/lzg/bin/conf/ms_conf.xml
     echo "ms_conf.xml 更新完成"
 }
 
@@ -277,7 +283,7 @@ function update_world_conf() {
     rm -rf /data/lzg/bin/conf/world_conf.xml
 
     # 生成 XML 内容
-    cat <<EOF > /data/lzg/bin/conf/world_conf.xml
+    content=$(cat <<EOF
 <?xml version="1.0" encoding="utf-8"?>
 
 <!-- Automaticly generated in $(date), scripts by WACMK -->
@@ -306,7 +312,8 @@ function update_world_conf() {
 </WorldServer>
 
 EOF
-
+    )
+	echo "$content" > /data/lzg/bin/conf/world_conf.xml
     echo "world_conf.xml 更新完成"
 }
 

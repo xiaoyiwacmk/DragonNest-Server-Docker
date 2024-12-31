@@ -2,9 +2,9 @@
 
 该仓库提供了创建 ***DragonNest 单节点服务器*** (以下简称 *DN*) 的 Docker 镜像的源码，目前支持以下版本：
 
-- 符文龙
-- 腹黑龙
-- 飓风龙
+- 符文龙 (fwl)
+- 腹黑龙 (fhl)
+- 飓风龙 (jfl)
 
 ## Docker 安装
 
@@ -28,19 +28,18 @@ sudo apt-get install docker-ce -y
 3. 生成 docker 镜像
 
 ```sh
-docker build -t wacmk-dn-{server_type}:{tag}.
+docker build -t wacmk-dn-{server_type}:{tag} .
 
-# server_type: 服务端类型，如 符文龙
+# server_type: 服务端类型
 
 # tag: 镜像版本号
 ## 稳定版
 ### latest 最新稳定版，指向最新的 x.y.z 版
 ### x，指向 x 版下最新的 x.y.z 版
-### x.y， 指向 x.y 版下最新的 x.y.z 版
-### x.y.z，某个具体的版本
+### x.y，某个具体的版本
 
 ## 测试版
-### x.y.z-alpha, 内部测试版，不提供简短 tag
-### x.y.z-beta，公开测试版，不提供简短 tag
+### x.y-alpha, 内部测试版，不提供简短 tag
+### x.y-beta，公开测试版，不提供简短 tag
 ```
 
