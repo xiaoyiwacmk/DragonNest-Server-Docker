@@ -2,6 +2,7 @@ FROM debian:12-slim
 RUN apt update
 RUN apt install -y zip
 RUN apt install -y mariadb-client
+RUN apt install -y screen
 
 RUN mkdir /logs /scripts  /data
 COPY ./scripts /scripts
