@@ -1,4 +1,4 @@
-FROM debian:12-slim
+FROM antrea/ubuntu:24.04
 RUN apt update
 RUN apt install -y zip
 RUN apt install -y mariadb-client
