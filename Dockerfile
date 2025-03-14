@@ -1,7 +1,7 @@
 FROM antrea/ubuntu:24.04
 ARG OPENSSL_VERSION=1.0.2u
 RUN apt update
-RUN apt install -y zip wget libcurl4
+RUN apt install -y zip wget libcurl4 mariadb-client
 RUN apt install -y screen build-essential
 
 RUN mkdir /logs /scripts  /data
