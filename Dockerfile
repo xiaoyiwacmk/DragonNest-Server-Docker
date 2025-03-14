@@ -31,5 +31,6 @@ RUN apt remove -y build-essential
 RUN apt autoclean
 
 RUN ldconfig
+WORKDIR /data/lzg/bin
 ENTRYPOINT ["/scripts/entrypoint.sh"]
 
