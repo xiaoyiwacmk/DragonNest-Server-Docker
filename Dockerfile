@@ -24,8 +24,8 @@ RUN ./config --prefix=/usr/local/openssl --shared
 RUN make -j4
 RUN make install
 RUN echo '/usr/local/openssl/lib' >>/etc/ld.so.conf
-RUN ln -s /usr/local/openssl/lib/libssl.so.1.0.0 /usr/local/openssl/lib/libssl.so.10
-RUN ln -s /usr/local/openssl/lib/libcrypto.so.1.0.0 /usr/local/openssl/lib/libcrypto.so.10
+RUN ln -s /usr/local/openssl/lib/libssl.so.1.0.0 /usr/lib/x86_64-linux-gnu/libssl.so.10
+RUN ln -s /usr/local/openssl/lib/libcrypto.so.1.0.0 /usr/lib/x86_64-linux-gnu/libcrypto.so.10
 
 RUN apt remove -y build-essential
 RUN apt autoclean
