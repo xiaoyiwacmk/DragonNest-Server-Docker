@@ -184,7 +184,7 @@ function update_login_conf() {
 		<peer ip="127.0.0.1" handler="ctrllink" port="25000" sendBufSize="1024000" recvBufSize="1024000"/>
 		<peer ip="0.0.0.0" handler="clientlink" port="25001" sendBufSize="0" recvBufSize="0"/>
 		<!-- peer ip="0.0.0.0" handler="gmtoollink" port="25002" sendBufSize="0" recvBufSize="0"/ -->
-		<!-- <peer ip="127.0.0.1" handler="cslink" port="25003" sendBufSize="1024000" recvBufSize="1024000"/> -->
+		<peer ip="127.0.0.1" handler="cslink" port="25003" sendBufSize="1024000" recvBufSize="1024000"/>
 		<peer ip="127.0.0.1" handler="mslink" port="28000" sendBufSize="1024000" recvBufSize="1024000"/>
 		<peer ip="127.0.0.1" handler="worldlink" port="28001" sendBufSize="1024000" recvBufSize="1024000"/>
 	</Listen>
