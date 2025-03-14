@@ -244,13 +244,6 @@ EOF
     echo "db.sh 更新完成"
 }
 
-function update_db() {
-
-  mysql -h$MYSQL_HOST -P$MYSQL_PORT -u$MYSQL_USER -p$MYSQL_PASSWORD -e "update \`login\`.\`gateinfo\` set \`ipaddr\` = '$SERVER_IP:$SERVER_PORT' where \`server_id\` = 201;";
-
-}
-
 update_login_sql
 update_db_sh
-update_db
 

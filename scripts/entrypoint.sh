@@ -34,7 +34,7 @@ if [ "$INIT_MODE" = "true" ]; then
     /scripts/update_basic_scripts.sh
     echo "初始化脚本文件创建完成，开始初始化数据库"
     /data/sql/db.sh
-    mysql -h$MYSQL_HOST -P$MYSQL_PORT -u$MYSQL_USER -p$MYSQL_PASSWORD -e "insert into \`globalworld\`.\`masterid\` values (1);";
+    mysql -h$MYSQL_HOST -P$MYSQL_PORT -u$MYSQL_USER -p$MYSQL_PASSWORD  $MYSQL_DB_GLOBALWORLD -e "insert into masterid values (1);";
     echo "数据库初始化完成，开始更新配置文件"
     /scripts/update_conf.sh
     echo "配置文件更新完成"
@@ -45,6 +45,7 @@ else
         echo "【配置更新模式】"
         /scripts/update_conf.sh
         /data/sql/db.sh
+        mysql -h$MYSQL_HOST -P$MYSQL_PORT -u$MYSQL_USER -p$MYSQL_PASSWORD $MYSQL_DB_LOGIN -e "update \`gateinfo\` set \`ipaddr\` = '$SERVER_IP:$SERVER_PORT' where \`server_id\` = 201;";
         echo "配置文件更新完成"
     fi
 
