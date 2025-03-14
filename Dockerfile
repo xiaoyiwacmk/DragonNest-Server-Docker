@@ -2,7 +2,7 @@ FROM antrea/ubuntu:24.04
 ARG OPENSSL_VERSION=1.0.2u
 RUN apt update
 RUN apt install -y zip wget libcurl4
-RUN apt install -y screen
+RUN apt install -y screen build-essential
 
 RUN mkdir /logs /scripts  /data
 COPY ./scripts /scripts
@@ -20,7 +20,7 @@ RUN echo '/usr/local/lib' >>/etc/ld.so.conf
 # for openssl 1.0.0
 RUN tar -xzf openssl-$OPENSSL_VERSION.tar.gz
 WORKDIR /openssl-$OPENSSL_VERSION
-RUN ./config --prefix=/usr/local/openssl
+RUN ./config --prefix=/usr/local/openssl --shared
 RUN make -j4
 RUN make install
 RUN echo '/usr/local/openssl/lib' >>/etc/ld.so.conf
