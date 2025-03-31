@@ -182,7 +182,7 @@ function update_login_conf() {
 
 	<Listen>
 		<peer ip="127.0.0.1" handler="ctrllink" port="25000" sendBufSize="1024000" recvBufSize="1024000"/>
-		<peer ip="0.0.0.0" handler="clientlink" port="25001" sendBufSize="0" recvBufSize="0"/>
+		<peer ip="0.0.0.0" handler="clientlink" port="$LOGIN_PORT" sendBufSize="0" recvBufSize="0"/>
 		<!-- peer ip="0.0.0.0" handler="gmtoollink" port="25002" sendBufSize="0" recvBufSize="0"/ -->
 		<peer ip="127.0.0.1" handler="cslink" port="25003" sendBufSize="1024000" recvBufSize="1024000"/>
 		<peer ip="127.0.0.1" handler="mslink" port="28000" sendBufSize="1024000" recvBufSize="1024000"/>
@@ -236,7 +236,7 @@ function update_ms_conf() {
         <peer ip="127.0.0.1" handler="ctrllink" port="21080" sendBufSize="1024000" recvBufSize="1024000"/>
         <peer ip="127.0.0.1" handler="worldlink" port="31001" sendBufSize="1024000" recvBufSize="1024000"/>        
         <peer ip="127.0.0.1" handler="teamlink" port="41001" sendBufSize="1024000" recvBufSize="1024000"/>
-        <peer ip="$SERVER_IP" handler="idiplink" port="$ID_IP_LINK_PORT" sendBufSize="2048000" recvBufSize="2048000"/>
+        <!--<peer ip="$SERVER_IP" handler="idiplink" port="58003" sendBufSize="2048000" recvBufSize="2048000"/>-->
         <!-- CenterServer列表 --> 
         <!--<peer ip="127.0.0.1" handler="centerlink" port="35888" sendBufSize="1024000" recvBufSize="1024000"/> -->        
 
@@ -317,6 +317,39 @@ EOF
     echo "world_conf.xml 更新完成"
 }
 
+function update_version_conf() {
+    rm -rf /data/lzg/bin/conf/version_conf.xml
+
+    # 生成 XML 内容
+    content=$(cat <<EOF
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<VersionServer name="version" id="100">
+	
+	<!-- Connect -->
+		<!-- peer ip="127.0.0.1" handler="idiplink" port="29002" sendBufSize="0" recvBufSize="0"/ -->
+	<!-- /Connect -->
+	
+	<Listen>
+		<peer ip="0.0.0.0" handler="clientlink" port="$VERSION_PORT" sendBufSize="0" recvBufSize="0"/>
+		<!-- peer ip="0.0.0.0" handler="gmtoollink" port="24002" sendBufSize="0" recvBufSize="0"/ -->
+	</Listen>
+
+	<!-- rolltype (day, hour) -->
+	<LogType  file="1" console="1" rolltype="day"/>
+	<LogLevel info="1" debug="1" warn="1" error="1" fatal="1"/>
+
+	<RootPath dir="versionconf"/>
+	<KeepAlive  enabled="0"/>
+</VersionServer>
+
+EOF
+    )
+	echo "$content" > /data/lzg/bin/conf/version_conf.xml
+    echo "version_conf.xml 更新完成"
+}
+
 # 调用函数生成配置文件
 update_cs_conf
 update_ctrl_conf
@@ -325,4 +358,5 @@ update_gs_conf
 update_login_conf
 update_ms_conf
 update_world_conf
+update_version_conf
 

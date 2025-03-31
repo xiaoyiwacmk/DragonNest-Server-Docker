@@ -18,11 +18,12 @@ function cleanup() {
 : "${REDIS_PASSWORD:-iguozicc}"
 : "${SERVER_IP:?SERVER_IP 环境变量未设置}"
 : "${SERVER_PORT:-10201}"
+: "${LOGIN_PORT:-25001}"
+: "${VERSION_PORT:-24001}"
 : "${SERVER_NAME:-WACMKDragonNest}"
 : "${SERVER_REGION_NAME:-WACMKDragonNest}"
 : "${SERVER_OPEN_TIME:-2020-04-01 16:00:00}"
 : "${SERVER_FULL_REGISTER_TIME:-2020-04-01 16:10:00}"
-: "${ID_IP_LINK_PORT:-58003}"
 
 echo "<< WACMK 龙之谷手游服务端 >>"
 if [ "$INIT_MODE" = "true" ]; then
